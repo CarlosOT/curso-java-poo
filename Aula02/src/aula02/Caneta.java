@@ -29,8 +29,8 @@ public class Caneta {
             Scanner teclado = new Scanner(System.in);
             System.out.print("Quantos rabiscos você quer fazer? ");
             int nRabiscos = teclado.nextInt();
+            System.out.println("Rabiscando " + nRabiscos + " vezes ... ");
             for(int c=0; c < nRabiscos; c++){
-                System.out.println("Rabiscando...");
                 this.carga -= 1;
             }
             System.out.println("Novo valor de carga: " + this.carga);
