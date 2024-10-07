@@ -14,7 +14,7 @@ public class Aula02 {
         c1.carga = 58;
         
         //chamando métodos (procedimentos)
-        c1.tampar();
+        c1.destampar();
         c1.status();
         c1.rabiscar();
        
@@ -29,9 +29,7 @@ public class Aula02 {
         c2.carga = 89;
         
         //chamando métodos (procedimentos)
-        c2.destampar();        
-        c2.status();
-        c2.rabiscar();
+        
     }
     
 }
