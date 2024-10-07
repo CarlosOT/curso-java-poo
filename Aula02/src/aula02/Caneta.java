@@ -18,18 +18,22 @@ public class Caneta {
         System.out.println("Cor da Caneta " + this.cor);
         System.out.println("Ponta: " + this.ponta);
         System.out.println("Carga: " + this.carga);
-        System.out.println("Está tampada? " + this.tampada);
+        if(this.tampada == true){
+            System.out.println("Caneta está tampada?: " + "SIM");
+        }else{
+            System.out.println("Caneta está tampada: " + "NÃO");
+        }
     }
     
-    //definindo métodos/ações/comportamentos (procedimento não tem retorno)
+    //caneta tem tampa ou não (definindo métodos/ações/comportamentos)
     void tampar(){
       this.tampada = true;  
-    }
-    
+    } 
     void destampar(){
         this.tampada = false;
     }
     
+    // verifica se a caneta está com tampa e a carga atual da caneta (método)
     void rabiscar(){
         if(this.tampada == true){
             System.out.println("ERRO! Não posso rabiscar, estou tampada");

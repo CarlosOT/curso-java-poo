@@ -10,13 +10,6 @@ public class Aula02 {
         Caneta c1 = new Caneta();
         Scanner teclado = new Scanner(System.in);
         
-        //chamando e definindo atributos separados
-        c1.ponta = 0.5f;
-        c1.modelo = "Caneta Bic";
-        c1.carga = 58;
-        c1.cor = "Azul";
-        c1.tampada = false;
-        
         //entrada usuário (cor da caneta)
         System.out.print("Escola a cor da sua caneta: ");
         String corCaneta = teclado.next();
@@ -28,22 +21,9 @@ public class Aula02 {
         c1.carga = cargaCaneta;
            
         //chamando métodos (procedimentos)
-        c1.destampar();
+        c1.tampar();
         c1.rabiscar();
         c1.status();
-       
-        
-        //-------------------------------------------------------------BLOCO 2
-        //instaciando objeto "c2" da classe "Caneta"
-        Caneta c2 = new Caneta();
-        
-        //chamando e definindo atributos
-        c2.modelo = "Hostnet";
-        c2.cor = "Preta";
-        c2.ponta = 0.7f;
-        c2.carga = 89;
-        
-        //chamando métodos (procedimentos)
         
     }
     
