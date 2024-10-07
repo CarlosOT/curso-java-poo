@@ -33,7 +33,15 @@ public class Caneta {
             for(int c=0; c < nRabiscos; c++){
                 this.carga -= 1;
             }
-            System.out.println("Novo valor de carga: " + this.carga);
+            if(this.carga <= 0){
+                System.out.println("O valor da carga ACABOU, compre outra caneta!");
+            } else if(this.carga > 0 && this.carga <20){
+                System.out.println("O valor da carga está acabando: " + "[" + this.carga + "]");
+                System.out.println("Valor atual da carga: " + this.carga);
+            } else{
+                System.out.println("Valor atual da carga: " + this.carga);
+            }
+            
         }
     }
     
