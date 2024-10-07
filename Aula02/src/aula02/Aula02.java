@@ -10,20 +10,41 @@ public class Aula02 {
         Caneta c1 = new Caneta();
         Scanner teclado = new Scanner(System.in);
         
+        // entrada usuário (modelo caneta)
+        System.out.print("Modelo da caneta: ");
+        String modeloCaneta = teclado.next();
+        c1.modelo = modeloCaneta;
+        
+        //entrada usuário (ponta caneta)
+        System.out.print("Ponta da caneta: ");
+        float pontaCaneta = teclado.nextFloat();
+        c1.ponta = pontaCaneta;
+        
         //entrada usuário (cor da caneta)
         System.out.print("Escola a cor da sua caneta: ");
         String corCaneta = teclado.next();
         c1.cor = corCaneta;
         
-        // entrada usuário (carga da caneta)
-        System.out.print("Valor carga inicial da caneta: ");
-        int cargaCaneta = teclado.nextInt();
-        c1.carga = cargaCaneta;
-           
-        //chamando métodos (procedimentos)
+        // entrada usuário (caneta tampada ou não)
+        System.out.print("Destampe a caneta para rabiscar [Clique > S]: ");
+        String canetaTampada = teclado.next().toUpperCase();
+        
+        if(canetaTampada.equals("S")){
+            c1.destampar();
+            c1.rabiscar();
+            c1.status();
+        }else{
+            c1.tampar();
+            c1.rabiscar();
+            c1.status();
+        }
+        
+        /*
+        chamando métodos (procedimentos)
         c1.tampar();
         c1.rabiscar();
         c1.status();
+        */
         
     }
     
