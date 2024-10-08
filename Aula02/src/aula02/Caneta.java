@@ -71,5 +71,15 @@ public class Caneta {
                 continuar = teclado.next().toUpperCase();
             }    
         }while(continuar.equals("S"));          
-    }             
+    }            
+    
+    // teste criando método/procedimento print (sem linha)
+    void print(String a){
+        System.out.print(a);
+    }
+    
+    // teste criando método/procedimento print (pulando linha)
+    void println(String a){
+        System.out.println(a);
+    }
 }
