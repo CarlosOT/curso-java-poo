@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 public class Caneta {
     // definindo atributos (características)
-    String modelo;
-    String cor;
-    float ponta;
-    int carga;
-    boolean tampada;
+    public String modelo;
+    public String cor;
+    public float ponta;
+    protected int carga;
+    private boolean tampada;
     
     // verificando os status do objeto criado (método que não tem retorno)
-    void status(){
+    public void status(){
         System.out.println("");
         System.out.println("---------------STATUS---------------");
         System.out.println("Modelo: " + this.modelo);
@@ -26,24 +26,26 @@ public class Caneta {
     }
     
     //caneta tem tampa ou não (definindo métodos/ações/comportamentos)
-    void tampar(){
+    public void tampar(){
       this.tampada = true;  
     } 
-    void destampar(){
+    protected void destampar(){
         this.tampada = false;
     }
     
     // verifica se a caneta está com tampa e a carga atual da caneta (método)
-    void rabiscar(){
+    public void rabiscar(){
         String continuar = "";
         do{    
             if(this.tampada == true){
                 System.out.println("ERRO! A caneta não pode rabiscar estando TAMPADA");
             }else if (this.tampada == false){
+                System.out.println("CARGA ATUAL DA CANETA: " + this.carga);
                 Scanner teclado = new Scanner(System.in);
                 System.out.print("Recarregue a sua caneta: ");
                 int valorRecarga = teclado.nextInt();
                 this.carga += valorRecarga;
+                System.out.println("CARGA ATUAL DA CANETA: " + this.carga);
                 System.out.print("Digita a quantidade de rabiscos: ");
                 int nRabiscos = teclado.nextInt();
                 
@@ -58,7 +60,7 @@ public class Caneta {
                     }
                 
                 if(this.carga <= 0){
-                    System.out.println("O valor da carga ACABOU, compre outra caneta!");
+                    System.out.println("O valor da carga ACABOU, recarregue a sua caneta!");
                 }else if(this.carga > 0 && this.carga <20){
                     System.out.println("O valor da carga está acabando: " + "[" + this.carga + "]");
                     System.out.println("Valor atual da carga: " + this.carga);
@@ -74,12 +76,12 @@ public class Caneta {
     }            
     
     // teste criando método/procedimento print (sem linha)
-    void print(String a){
+    public void print(String a){
         System.out.print(a);
     }
     
     // teste criando método/procedimento print (pulando linha)
-    void println(String a){
+    public void println(String a){
         System.out.println(a);
     }
 }

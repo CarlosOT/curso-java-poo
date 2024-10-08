@@ -11,6 +11,12 @@ public class Aula02 {
         Caneta c1 = new Caneta();
         Scanner teclado = new Scanner(System.in);
         
+        //apresentação programa
+        c1.println("###########################");
+        c1.println("---- PROGRAMA CANETA -----");
+        c1.println("###########################");
+        c1.println("");
+        
         // entrada usuário (modelo caneta)
         System.out.print("Modelo da caneta: ");
         String modeloCaneta = teclado.next();
