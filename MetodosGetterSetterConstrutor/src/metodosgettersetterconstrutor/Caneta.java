@@ -19,7 +19,7 @@ public class Caneta {
     private String cor;
     
     /*--------------------------------------------------------> DEF. MÉTODOS*/
-    //Métodos acessores (getters)
+    //Métodos acessores (getters) funcoes
     public String getModelo(){
         return this.modelo;
     }
@@ -33,7 +33,7 @@ public class Caneta {
         return this.cor;
     }
     
-    //Métodos modificadores(setters)
+    //Métodos modificadores(setters) procedimentos
     public void setModelo(String m){
        this.modelo = m; 
     }
@@ -58,8 +58,8 @@ public class Caneta {
         System.out.println("----- SOBRE A CANETA -----");
         System.out.println("Modelo: " + this.getModelo());
         System.out.println("Ponta: " + this.getPonta());
-        System.out.println("Cor: " + this.cor);
-        System.out.println("Tampada: " + this.tampada);
+        System.out.println("Cor: " + this.getCor());
+        System.out.println("Tampada: " + this.getTampada());
     }
     
 }
