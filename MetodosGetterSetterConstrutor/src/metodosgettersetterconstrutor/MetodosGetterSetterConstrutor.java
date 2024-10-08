@@ -15,7 +15,7 @@ public class MetodosGetterSetterConstrutor {
         //objeto c1
         System.out.println("CANETA 1 ...");
         System.out.print("Modelo: ");
-        String modelo = teclado.nextLine().toUpperCase();   
+        String modelo = teclado.next().toUpperCase();
         c1.setModelo(modelo); // c1.modelo = "Bic2"; (atributo "modelo" privado)
         
         System.out.print("Ponta [5,7]: ");
@@ -37,12 +37,12 @@ public class MetodosGetterSetterConstrutor {
         //objeto c2
         System.out.println("CANETA 2 ...");
         System.out.print("Modelo: ");
-        String modelo2 = teclado.nextLine().toUpperCase();   
-        c2.setModelo(modelo2); // c1.modelo = "Bic2"; (atributo "modelo" privado)
+        String modelo2 = teclado.next().toUpperCase();
+        c2.setModelo(modelo2); // c2.modelo = "Bic2"; (atributo "modelo" privado)
         
         System.out.print("Ponta [5,7]: ");
         float ponta2 = teclado.nextFloat();
-        c2.setPonta(ponta2); // c1.ponta = 5.7f; (atributo "ponta" privado)
+        c2.setPonta(ponta2); // c2.ponta = 5.7f; (atributo "ponta" privado)
         
         System.out.print("Cor: ");
         String cor2 = teclado.next().toUpperCase();
@@ -50,7 +50,7 @@ public class MetodosGetterSetterConstrutor {
         
         System.out.print("Tampada [S/N]: ");
         String tampada2 = teclado.next().toUpperCase();
-        if(tampada.equals("S")){
+        if(tampada2.equals("S")){
             c2.tampar();
         }else{
             c2.destampar();
