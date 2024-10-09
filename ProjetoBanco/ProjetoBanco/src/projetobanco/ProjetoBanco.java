@@ -2,10 +2,11 @@
 package projetobanco;
 
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class ProjetoBanco {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         /*------------------------------------------------INSTANCIANDO OBJETO*/
         ContaBanco conta = new ContaBanco();
         Scanner teclado = new Scanner(System.in);
@@ -13,6 +14,7 @@ public class ProjetoBanco {
         /*-----------------------------------------------DECLARANDO VARIÁVEL*/
         int opcao = 0;
         int numeroContas = 0;
+        float saque, deposito;
         String primeiroNome, ultimoNome, nomeCompleto;
         
         /*----------------------------------------------------OPÇÕES USUÁRIO*/
@@ -27,6 +29,7 @@ public class ProjetoBanco {
                     "(4) PARA SACAR \n" +
                     "(5) PARA DEPOSITAR \n" +
                     "(6) PARA VER EXTRATO DA CONTA \n"+
+                    "(7) PARA VER SALDO DA CONTA \n" +
                     "(0) PARA ENCERRAR ATENDIMENTO \n");
 
             /*----------------------------------------------ENTRADA USUÁRIO*/
@@ -65,15 +68,54 @@ public class ProjetoBanco {
                 }
                 
             }
-            //Fechar Conta
+            //Fechar conta
             if(opcao == 2){
-                System.out.println("");
-                conta.fecharConta();
+                if(conta.getStatus() == false){
+                    System.out.println("");
+                    System.out.println("NÃO HÁ CONTA EM ABERTO");
+                }else{
+                    System.out.println("");
+                    conta.fecharConta();
+                }
+                
             }
-            
+            //Pagar mensalidade
+            if(opcao == 3){
+                System.out.println("");
+                conta.pagarMensal();
+            }
+            //Sacar
+            if(opcao == 4){
+                System.out.println("");
+                System.out.print("DIGITE O VALOR A SER SACADO: ");
+                saque = teclado.nextFloat();
+                conta.sacar(saque);
+            }
+            //Depositar
+            if(opcao == 5){
+                System.out.println("");
+                System.out.println("DIGITE O VALOR A SER DEPOSITADO: ");
+                deposito = teclado.nextFloat();
+                conta.depositar(deposito);     
+            }
             //Extrato da conta
             if(opcao == 6){
-                conta.extratoConta();
+                if(conta.getStatus() == false){
+                    System.out.println("");
+                    System.out.println("NÃO HÁ CONTA PARA VER EXTRATO");
+                }else{
+                    conta.extratoConta();
+                }   
+            }
+            //Consultar saldo
+            if(opcao == 7){
+                if(conta.getStatus() == false){
+                   System.out.println("");
+                   System.out.println("NÃO HÁ CONTA PARA VER SALDO"); 
+                }else{
+                    System.out.println("TITULAR CONTA: " + conta.getDono());
+                    System.out.println("SALDO ATUAL: " + conta.getSaldo());
+                }
             }
         
         }while(opcao != 0); //Programa repete

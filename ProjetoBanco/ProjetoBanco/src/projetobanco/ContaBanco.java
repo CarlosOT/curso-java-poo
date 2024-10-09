@@ -67,16 +67,22 @@ public class ContaBanco {
         if(this.getSaldo() > 0){
             System.out.println("-----------AVISO-----------");
             System.out.println("Conta de " + this.getDono() + " Com Dinheiro [Não Pode Ser Fechada]");
+            System.out.println("Saldo da conta: " + this.getSaldo());
         }else if(this.saldo < 0){
             System.out.println("-----------AVISO-----------");
             System.out.println("Conta de " + this.getDono() + " em Débito [Não Pode Ser Fechada]");
         }else{
             this.setStatus(false);
+            System.out.println("CONTA ENCERRADA");
         }
     }
     public void depositar(float v){
         if(this.getStatus() == true){
+            System.out.println("");
+            System.out.println("DEPÓSITO REALIZADO COM SUCESSO");
+            System.out.println("Saldo Anterior: " + this.getSaldo());
             this.setSaldo(this.getSaldo() + v);
+            System.out.println("Saldo Atual: " + this.getSaldo());
         }else{
             System.out.println("-----------AVISO-----------");
             System.out.println("Não é Possível Depositar [Conta Fechada]");
@@ -85,7 +91,11 @@ public class ContaBanco {
     public void sacar(float v){
         if(this.getStatus() == true){
             if(this.getSaldo() >=  v){
+                System.out.println("");
+                System.out.println("SAQUE REALIZADO COM SUCESSO");
+                System.out.println("Saldo Anterior: " + this.getSaldo());
                 this.setSaldo(this.getSaldo() - v);
+                System.out.println("Saldo Atual: " + this.getSaldo());
             }else{
                 System.out.println("-----------AVISO-----------");
                 System.out.println("Saldo Insuficiente [Saldo atual: " + this.getSaldo() + " ]");
@@ -104,7 +114,11 @@ public class ContaBanco {
         }
         if(this.getStatus() == true){
             if(this.getSaldo() >= v){
+                System.out.println("");
+                System.out.println("COBRANÇA REALIZADA COM SUCESSO");
+                System.out.println("Saldo Anterior: " + this.getSaldo());
                 this.setSaldo(this.getSaldo() - v);
+                System.out.println("Saldo Atual: " + this.getSaldo());
             }else{
                 System.out.println("-----------AVISO-----------");
                 System.out.println("Saldo Insuficiente para cobrança de mensalidade [Saldo atual: " + this.getSaldo() + " ]");
