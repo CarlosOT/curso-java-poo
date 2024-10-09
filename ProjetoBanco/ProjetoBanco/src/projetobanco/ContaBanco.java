@@ -66,10 +66,10 @@ public class ContaBanco {
     public void fecharConta(){
         if(this.getSaldo() > 0){
             System.out.println("-----------AVISO-----------");
-            System.out.println("Conta Com Dinheiro [Não Pode Ser Fechada]");
+            System.out.println("Conta de " + this.getDono() + " Com Dinheiro [Não Pode Ser Fechada]");
         }else if(this.saldo < 0){
             System.out.println("-----------AVISO-----------");
-            System.out.println("Conta em Débito [Não Pode Ser Fechada]");
+            System.out.println("Conta de " + this.getDono() + " em Débito [Não Pode Ser Fechada]");
         }else{
             this.setStatus(false);
         }
@@ -125,5 +125,5 @@ public class ContaBanco {
         System.out.println("Saldo: " + this.getSaldo());
         System.out.println("Status: " + this.getStatus());
         System.out.println("");
-    }   
+    }      
 }
