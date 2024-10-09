@@ -8,7 +8,7 @@ public class Caneta {
         this.setModelo("BIC"); // recebe "m"
         this.setCor("ROSA"); // recebe "c"
         this.setPonta(0.7f); // recebe "p"
-        this.tampar();    
+        this.tampar();  
     }
     
     /*-----------------------------------------------------> DEF. ATRIBUTOS*/
@@ -44,7 +44,7 @@ public class Caneta {
         this.cor = c;
     }
     
-    //Método 
+    //Métodos simples
     public void tampar(){
         this.tampada = true;
     }
