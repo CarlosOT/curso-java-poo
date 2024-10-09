@@ -23,7 +23,7 @@ public class ProjetoBanco {
             System.out.println("***********OPÇÕES BANCO***********");
             System.out.println("");
             System.out.println(
-                    "(1) PARA ABRIR CONTA [cc/cp] \n" +
+                    "(1) PARA ABRIR CONTA \n" +
                     "(2) PARA FECHAR CONTA \n" +
                     "(3) PARA PAGAR MENSALIDADE \n" +
                     "(4) PARA SACAR \n" +
@@ -94,7 +94,7 @@ public class ProjetoBanco {
             //Depositar
             if(opcao == 5){
                 System.out.println("");
-                System.out.println("DIGITE O VALOR A SER DEPOSITADO: ");
+                System.out.print("DIGITE O VALOR A SER DEPOSITADO: ");
                 deposito = teclado.nextFloat();
                 conta.depositar(deposito);     
             }
@@ -117,7 +117,10 @@ public class ProjetoBanco {
                     System.out.println("SALDO ATUAL: " + conta.getSaldo());
                 }
             }
-        
+        System.out.println("");
+        System.out.println("(9) PARA VOLTAR AO MENU ANTERIOR \n(0) PARA ENCERRAR");
+        System.out.print("ESCOLHER UMA DAS OPÇÕES ACIMA: ");
+        opcao = teclado.nextInt();
         }while(opcao != 0); //Programa repete
     }
     
