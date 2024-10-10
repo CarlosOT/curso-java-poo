@@ -1,8 +1,8 @@
 
 package projetobanco;
 
+import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
 public class ProjetoBanco {
 
@@ -10,13 +10,16 @@ public class ProjetoBanco {
         /*------------------------------------------------INSTANCIANDO OBJETO*/
         ContaBanco conta = new ContaBanco();
         Scanner teclado = new Scanner(System.in);
+        ArrayList listaCliente = new ArrayList();
+        ArrayList listaTipoConta = new ArrayList();
+        ArrayList listaSaldo = new ArrayList();
         
         /*-----------------------------------------------DECLARANDO VARIÁVEL*/
         int opcao = 0;
-        int numeroContas = 0;
+        int numeroConta = 0;
         float saque, deposito;
         String primeiroNome, ultimoNome, nomeCompleto;
-        
+             
         /*----------------------------------------------------OPÇÕES USUÁRIO*/
         do{ //Programa repete
             System.out.println("");
@@ -28,8 +31,9 @@ public class ProjetoBanco {
                     "(3) PARA PAGAR MENSALIDADE \n" +
                     "(4) PARA SACAR \n" +
                     "(5) PARA DEPOSITAR \n" +
-                    "(6) PARA VER EXTRATO DA CONTA \n"+
-                    "(7) PARA VER SALDO DA CONTA \n" +
+                    "(6) PARA VER RESUMO DA ÚLTIMA CONTA ABERTA \n"+
+                    "(7) PARA VER SALDO DA CONTA ÚLTIMA CONTA ABERTA \n" +
+                    "(8) PARA VER RESUMO DE CLIENTES \n" +        
                     "(0) PARA ENCERRAR ATENDIMENTO \n");
 
             /*----------------------------------------------ENTRADA USUÁRIO*/
@@ -48,10 +52,14 @@ public class ProjetoBanco {
                 nomeCompleto = (primeiroNome + " " + ultimoNome);
                 conta.setDono(nomeCompleto);
                 
-                //definindo número de contas
-                numeroContas += 1;
-                conta.setNumConta(numeroContas);
+                //Definindo número de contas
+                numeroConta += 1;
+                conta.setNumConta(numeroConta);
                 
+                //Inserindo nome do cliente dentro de lista
+                listaCliente.add("");//Primeiro indice desconsiderado
+                listaCliente.add(numeroConta,nomeCompleto);
+               
                 //Conta poupança ou conta corrente
                 System.out.println("");
                 System.out.println("(1) CONTA POUPANÇA \n(2) CONTA CORRENTE");
@@ -66,7 +74,14 @@ public class ProjetoBanco {
                     System.out.println("");
                     System.out.println("CONTA CORRENTE DE " + nomeCompleto + " ABERTA!");
                 }
-                
+
+                //Inserindo tipo de conta dentro de lista
+                listaTipoConta.add("");//Primeiro indice desconsiderado  
+                if(tipoConta == 1){
+                    listaTipoConta.add(numeroConta, "CONTA POUPANÇA");
+                }else if(tipoConta == 2){
+                    listaTipoConta.add(numeroConta, "CONTA CORRENTE");
+                }    
             }
             //Fechar conta
             if(opcao == 2){
@@ -76,8 +91,7 @@ public class ProjetoBanco {
                 }else{
                     System.out.println("");
                     conta.fecharConta();
-                }
-                
+                }       
             }
             //Pagar mensalidade
             if(opcao == 3){
@@ -117,6 +131,26 @@ public class ProjetoBanco {
                     System.out.println("SALDO ATUAL: " + conta.getSaldo());
                 }
             }
+            
+            //Inserindo saldo da conta dentro de lista
+                listaSaldo.add("");//Primeiro indice desconsiderado
+                listaSaldo.add(numeroConta, conta.getSaldo());
+            
+            
+            //Listar clientes
+            if(opcao == 8){
+                if(numeroConta >= 1){
+                    System.out.println("");
+                    System.out.println("------LISTA CLIENTES------"); 
+                    for(int c = 1; c <= numeroConta; c++){
+                        System.out.println("CONTA " + numeroConta + " / " + listaCliente.get(c) //quebra linha
+                        + "[" + listaTipoConta.get(c) + "] " + "SALDO ATUAL: R$" + listaSaldo.get(c));
+                    }              
+                }else{
+                   System.out.println("");
+                   System.out.println("------LISTA CLIENTES ZERADA------"); 
+                }
+            }  
         System.out.println("");
         System.out.println("(9) PARA VOLTAR AO MENU ANTERIOR \n(0) PARA ENCERRAR");
         System.out.print("ESCOLHER UMA DAS OPÇÕES ACIMA: ");
