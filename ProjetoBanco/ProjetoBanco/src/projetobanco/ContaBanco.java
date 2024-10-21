@@ -5,11 +5,11 @@ public class ContaBanco {
     /*-----------------------------------------------> DEF. MÉTODO CONSTRUTOR*/
     //PADRÃO - Método especial construtor (tem o mesmo nome da Classe)
     public ContaBanco(){
-        this.saldo = 0;
-        this.status = false;
+        this.setSaldo(0);
+        this.setStatus(false);
     }
     
-    /*-----------------------------------------------------> DEF. ATRIBUTOS*/
+    /*-------------------------------------------------------> DEF. ATRIBUTOS*/
     //PADRÃO - Atributos da classe(características)
     public int numConta;
     protected String tipo;
