@@ -52,7 +52,7 @@ public class ContaBanco {
         this.status = s;
     }
     
-    //LÓGICA - Métodos específicos
+    //LÓGICA - Métodos específicos / personalizados
     public void abrirConta(String t){
         this.setTipo(t);
         this.setStatus(true);
