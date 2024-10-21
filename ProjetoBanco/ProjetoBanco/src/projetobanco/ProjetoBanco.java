@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class ProjetoBanco {
 
-    public static void main(String[] args) throws InterruptedException {
+    private static void main(String[] args) throws InterruptedException {
         /*------------------------------------------------INSTANCIANDO OBJETO*/
         ContaBanco conta = new ContaBanco();
         Scanner teclado = new Scanner(System.in);
