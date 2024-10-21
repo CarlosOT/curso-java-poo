@@ -73,13 +73,14 @@ public class ContaBanco {
             System.out.println("Conta de " + this.getDono() + " em Débito [Não Pode Ser Fechada]");
         }else{
             this.setStatus(false);
-            System.out.println("CONTA ENCERRADA");
+            System.out.println("CONTA DE " + this.getDono().toUpperCase() + " ENCERRADA");
         }
     }
     public void depositar(float v){
         if(this.getStatus() == true){
             System.out.println("");
-            System.out.println("DEPÓSITO REALIZADO COM SUCESSO");
+            System.out.println("[+]DEPÓSITO REALIZADO COM SUCESSO DE " + this.getDono().toUpperCase());
+            System.out.println("Valor do Depósito: " + v);
             System.out.println("Saldo Anterior: " + this.getSaldo());
             this.setSaldo(this.getSaldo() + v);
             System.out.println("Saldo Atual: " + this.getSaldo());
@@ -92,12 +93,13 @@ public class ContaBanco {
         if(this.getStatus() == true){
             if(this.getSaldo() >=  v){
                 System.out.println("");
-                System.out.println("SAQUE REALIZADO COM SUCESSO");
+                System.out.println("[-]SAQUE REALIZADO COM SUCESSO DE " + this.getDono().toUpperCase());
+                System.out.println("Valor do Saque: " + v);
                 System.out.println("Saldo Anterior: " + this.getSaldo());
                 this.setSaldo(this.getSaldo() - v);
                 System.out.println("Saldo Atual: " + this.getSaldo());
             }else{
-                System.out.println("-----------AVISO-----------");
+                System.out.println("---IMPOSSÍVEL SACAR---");
                 System.out.println("Saldo Insuficiente [Saldo atual: " + this.getSaldo() + " ]");
             }
         }else{
@@ -115,7 +117,7 @@ public class ContaBanco {
         if(this.getStatus() == true){
             if(this.getSaldo() >= v){
                 System.out.println("");
-                System.out.println("COBRANÇA REALIZADA COM SUCESSO");
+                System.out.println("MENSALIDADE COBRADA NA CONTA DE " + this.getDono().toUpperCase());
                 System.out.println("Saldo Anterior: " + this.getSaldo());
                 this.setSaldo(this.getSaldo() - v);
                 System.out.println("Saldo Atual: " + this.getSaldo());
@@ -132,12 +134,11 @@ public class ContaBanco {
     /*------------------------------------------------------> MOSTRAR STATUS*/
     public void extratoConta(){
         System.out.println("");
-        System.out.println("-----------EXTRATO DA CONTA-----------");
+        System.out.println("---EXTRATO DA CONTA DE " + this.getDono().toUpperCase() + "---");
         System.out.println("Número: " + this.getNumConta());
         System.out.println("Tipo: " + this.getTipo());
         System.out.println("Dono: " + this.getDono());
         System.out.println("Saldo: " + this.getSaldo());
         System.out.println("Status: " + this.getStatus());
-        System.out.println("");
     }      
 }
