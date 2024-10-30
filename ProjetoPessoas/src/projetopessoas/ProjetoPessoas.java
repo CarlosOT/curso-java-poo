@@ -21,6 +21,12 @@ public class ProjetoPessoas {
         p2.setIdade(18);
         
         p2.setCurso("Informática");
+        p3.setSalario(2500.75f);
+        p4.setSetor("Estoque");
+        
+        p3.receberAumento(550.20f);
+        p4.mudaTrabalho();
+        p2.cancelarMatr();
         
         
         System.out.println(p1.toString());
